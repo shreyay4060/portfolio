@@ -3,212 +3,548 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio</title>
+    <title>Shreya Yadav | Portfolio</title>
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Light, modern, fancy color palette */
+      :root {
+        --primary: #f5f7fa;
+        --accent: #a18cd1;
+        --accent2: #fbc2eb;
+        --text: #3a3a3a;
+        --highlight: #ffb347;
+        --nav-bg: #ffffffcc;
+        --nav-shadow: 0 2px 24px 0 #e0e0e0;
+        --card-bg: #ffffffcc;
+        --card-shadow: 0 4px 32px 0 #e0e0e0;
+        --gradient: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+        --button-bg: #a18cd1;
+        --button-hover: #fbc2eb;
+      }
+      body {
+        background: var(--gradient);
+        min-height: 100vh;
+        font-family: "Segoe UI", "Poppins", Arial, sans-serif;
+        color: var(--text);
+        overflow-x: hidden;
+      }
+      .navbar {
+        background: var(--nav-bg) !important;
+        box-shadow: var(--nav-shadow);
+        backdrop-filter: blur(8px);
+      }
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--accent) !important;
+        letter-spacing: 1px;
+        text-shadow: 0 2px 8px #fbc2eb44;
+      }
+      .navbar-nav .nav-link {
+        color: var(--accent) !important;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin-right: 1rem;
+        transition: color 0.2s;
+      }
+      .navbar-nav .nav-link:hover {
+        color: var(--highlight) !important;
+      }
+      .resume-btn {
+        background: var(--button-bg);
+        color: #fff !important;
+        border-radius: 30px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 600;
+        border: none;
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        box-shadow: 0 2px 12px #a18cd144;
+        margin-left: 1rem;
+      }
+      .resume-btn:hover {
+        background: var(--button-hover);
+        color: var(--accent) !important;
+        box-shadow: 0 4px 24px #fbc2eb44;
+      }
+      .main {
+        padding-top: 100px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .profile-card {
+        background: var(--card-bg);
+        box-shadow: var(--card-shadow);
+        border-radius: 32px;
+        padding: 2.5rem 2rem 2rem 2rem;
+        margin-bottom: 2rem;
+        max-width: 700px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 1.2s cubic-bezier(0.23, 1.01, 0.32, 1) both;
+      }
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid var(--accent2);
+        margin-bottom: 1.2rem;
+        box-shadow: 0 4px 24px #a18cd144;
+        background: #fff;
+        animation: bounceIn 1.2s;
+      }
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.7);
+        }
+        60% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .home-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .subtitle {
+        font-size: 1.2rem;
+        color: #888;
+        margin-bottom: 1.2rem;
+      }
+      #element {
+        font-size: 1.3rem;
+        font-style: italic;
+        color: var(--highlight);
+        margin-bottom: 1.5rem;
+        display: block;
+        min-height: 32px;
+      }
+      .about,
+      .contact {
+        background: var(--card-bg);
+        box-shadow: var(--card-shadow);
+        border-radius: 24px;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+        max-width: 700px;
+        width: 100%;
+        animation: fadeInUp 1.2s cubic-bezier(0.23, 1.01, 0.32, 1) both;
+      }
+      .about h1,
+      .contact h1 {
+        color: var(--accent);
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .about p,
+      .contact p {
+        color: #444;
+        font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+      }
+      .social-icons {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .social-icons a {
+        color: var(--accent);
+        font-size: 2rem;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .social-icons a:hover {
+        color: var(--highlight);
+        transform: scale(1.2) rotate(-8deg);
+      }
+      .contact-info {
+        text-align: center;
+      }
+      .mail,
+      .phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        font-size: 1.1rem;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .mail i,
+      .phone i {
+        color: var(--highlight);
+        font-size: 1.3rem;
+      }
+      .copyright {
+        width: 100%;
+        text-align: center;
+        padding: 1.5rem 0 0.5rem 0;
+        color: #888;
+        font-size: 1rem;
+        background: transparent;
+      }
+      .copyright a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .copyright a:hover {
+        color: var(--highlight);
+      }
+      /* Floating animated puzzle pieces */
+      .puzzle {
+        position: absolute;
+        z-index: 0;
+        opacity: 0.12;
+        animation: floatPuzzle 12s infinite linear;
+      }
+      .puzzle.p1 {
+        top: 5%;
+        left: 10%;
+        width: 60px;
+        animation-delay: 0s;
+      }
+      .puzzle.p2 {
+        top: 15%;
+        right: 12%;
+        width: 40px;
+        animation-delay: 2s;
+      }
+      .puzzle.p3 {
+        bottom: 10%;
+        left: 20%;
+        width: 50px;
+        animation-delay: 4s;
+      }
+      .puzzle.p4 {
+        bottom: 18%;
+        right: 18%;
+        width: 70px;
+        animation-delay: 6s;
+      }
+      @keyframes floatPuzzle {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-30px) rotate(10deg);
+        }
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+      }
+      /* Responsive */
+      @media (max-width: 768px) {
+        .profile-card,
+        .about,
+        .contact {
+          padding: 1.2rem 0.5rem;
+        }
+        .main {
+          padding-top: 70px;
+        }
+        .profile-pic {
+          width: 90px;
+          height: 90px;
+        }
+        .home-title {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
-  <div class="body">
-    <div class="portfolio">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
+    <!-- Floating puzzle SVGs for animation -->
+    <svg class="puzzle p1" viewBox="0 0 64 64">
+      <path
+        fill="#a18cd1"
+        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
+      />
+    </svg>
+    <svg class="puzzle p2" viewBox="0 0 64 64">
+      <path
+        fill="#fbc2eb"
+        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
+      />
+    </svg>
+    <svg class="puzzle p3" viewBox="0 0 64 64">
+      <path
+        fill="#a6c1ee"
+        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
+      />
+    </svg>
+    <svg class="puzzle p4" viewBox="0 0 64 64">
+      <path
+        fill="#ffb347"
+        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
+      />
+    </svg>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <i class="fa-solid fa-puzzle-piece"></i> Shreya
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#home"
+                ><i class="fa fa-home"></i> Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about"
+                ><i class="fa fa-user"></i> About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact"
+                ><i class="fa fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <button class="resume-btn" id="downloadResume">
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="bg-violet-600 hover:bg-violet-800 text-white font-semibold py-2 px-4 rounded-lg"
+                >
+                  Download Resume
+                </a>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="main" id="home">
+      <div class="profile-card">
+        <img src="./images/mi.png" alt="Shreya Yadav" class="profile-pic" />
+        <div class="home-title">Hey there! 👋</div>
+        <div class="subtitle">Welcome to my world 😉</div>
+        <h1
+          class="center"
+          style="font-size: 2rem; color: var(--accent); font-weight: 700"
+        >
+          I'm Shreya Yadav
+        </h1>
+        <span id="element"></span>
+        <div style="margin-top: 1.5rem">
           <a
-            class="navbar-brand"
-            href="#"
+            href="#about"
+            class="resume-btn"
+            style="background: var(--highlight); color: var(--text)"
+            >Learn More <i class="fa fa-arrow-down"></i
+          ></a>
+        </div>
+      </div>
+      <!-- About Section -->
+      <div class="about" id="about">
+        <h1>Let me introduce myself</h1>
+        <p>
+          "Hello, I'm <b><i>Shreya</i></b
+          >, a multidisciplinary creative professional with a passion for
+          <b><i>crafting innovative</i></b> digital experiences. With expertise
+          in both <b><i>Graphic design</i></b> and <b><i>web development</i></b
+          >, I bring a unique blend of artistic vision and technical expertise
+          to every project."
+        </p>
+        <p>
+          With a strong foundation in design principles and a keen eye for
+          detail, I create visually stunning and user-friendly interfaces that
+          captivate audiences and drive results. My passion for innovation and
+          my ability to think outside the box make me a valuable asset to any
+          team. I'm always looking for new challenges and opportunities to grow
+          and learn.
+        </p>
+        <div style="margin-top: 1.5rem">
+          <img
+            src="./images/mi.png"
+            alt="Shreya Graphic"
             style="
-              color: rgb(212, 2, 212);
-              font-weight: 600;
-              font-style: italic;
-              font-size: 1.7rem;
+              width: 80px;
+              border-radius: 16px;
+              box-shadow: 0 2px 12px #a18cd144;
             "
-            >Shreya &#x2661;
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item voilate">
-                <a
-                  class="nav-link active voilate"
-                  aria-current="page"
-                  href="/"
-                  style="color: rgb(212, 2, 212)"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-house-door"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"
-                    />
-                  </svg>
-                  Home</a
-                >
-              </li>
-              <li class="nav-item voilate">
-                <a class="nav-link" href="./public/about.html" style="color: rgb(212, 2, 212)">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-file-earmark-person-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0m2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755"
-                    />
-                  </svg>
-                  About</a
-                >
-              </li>
-              <li class="nav-item voilate">
-                <a
-                  class="nav-link"
-                  href="https://github.com/shreyay4060/"
-                  style="color: rgb(212, 2, 212)"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-pc-display-horizontal"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5M12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0m2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0M1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1M1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25"
-                    />
-                  </svg>
-                  Projects</a
-                >
-              </li>
-              <li class="nav-item voilate">
-                <a href="/images/resume.pdf" download
-                  class="nav-link"
-                  style="color: rgb(212, 2, 212)"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-pc-display-horizontal"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5M12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0m2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0M1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1M1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25"
-                    />
-                  </svg>
-                  Resume</a
-                >
-              </li>
-            </ul>
+          />
+        </div>
+      </div>
+      <!-- Contact Section -->
+      <div class="contact" id="contact">
+        <div class="contact-info">
+          <h1>Get in touch</h1>
+          <p>Want to collaborate or just say hi? I'd love to hear from you!</p>
+          <div class="mail">
+            <i class="fa-solid fa-paper-plane"></i>
+            <a
+              href="mailto:shreyay4060@gmail.com"
+              style="color: var(--accent); text-decoration: none"
+              >shreyay4060@gmail.com</a
+            >
+          </div>
+          <div class="phone">
+            <i class="fa-solid fa-square-phone"></i> <span>8421915279</span>
           </div>
         </div>
-      </nav>
-  <div class="main">
-    
-    <main>
-      <div class="home">
-        <h1 class="home-title center">Hey there! 
-        </h1>
-        <h1 class="world">  
-            <h1 style="font-size: small; margin-bottom: 40px; color: aliceblue; font-weight: 100; margin-top: -50px;" class="center">
-            <br>Welcome to my world 😉 
-            <!-- <img src="/mi.jpeg" height="200rem" alt=""></h1> -->
-        
-  
-        <h1 class="center">I'm Shreya Yadav</h1>
-  
-        <span id="element"></span>
-        <div class="video">
-              <!-- Video Background -->
-        <div class="video">
-            <img src="./images/mi.png" alt="">
-        </div>
-        </div>
-      </div>
-    </main>
-    <div class="about" ><a href="#about"></a>
-        <div class="p">
-            <h1>Let me introduce myself first </h1>
-            <p>"Hello, I'm <b><i>Shreya</i></b>, a multidisciplinary creative professional with a passion for <b><i style="font-weight: normal;">crafting innovative</i></b> digital experiences. With expertise in both <b><i style="font-weight: normal;">Graphic design</i></b> and <b><i style="font-weight: normal;">web development</i></b>  , I bring a unique blend of artistic vision and technical expertise to every project."
-            </p>
-            <p>With a strong foundation in design principles and a keen eye for detail, I create
-              visually stunning and user-friendly interfaces that captivate audiences and drive results. My passion for innovation and
-              my ability to think outside the box make me a valuable asset to any team. I'm always
-              looking for new challenges and opportunities to grow and learn.</p>
-        </div>
-    </a></div>
-  
-  
-    <div class="contact">
-      <div class="contact-info">  
-        <h1 class="center">Get in touch</h1>
-        <p>Want to collaborate or just say hi? I'd love to hear from you!</p>
-        <p>Feel free to reach out to me at </p>
-  
-      </div>
-      <div class="mail">
-        <div class="con">
-          <a href="mailto:shreyay4060@gmail.com" target="_blank" style="text-decoration: none;"><p><i class="fa-solid fa-paper-plane-top"></i> 
-            shreyay4060@gmail.com
-          </p></a>
-         
-          <p><i class="fa-solid fa-square-phone"></i> 
-            8421915279
-          </p>
-        </div>
-      </div>
         <div class="social-icons">
-            <a href="https://www.facebook.com/" ><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://twitter.com/shreyaycode"><i class="fa-brands fa-twitter-square"></i></a>
-            <a href="https://www.instagram.com/shreegraphics.dev"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/shreya-yadav-53286028b"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/shreyay4060"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.facebook.com/" target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="https://twitter.com/shreyaycode" target="_blank"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="https://www.instagram.com/shreegraphics.dev" target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/shreya-yadav-53286028b"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/shreyay4060" target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
         </div>
-  
+      </div>
+      <!-- Animated Fun Fact Card -->
+      <div
+        class="about"
+        style="
+          background: var(--accent2);
+          color: var(--text);
+          text-align: center;
+          animation: fadeInUp 1.5s 0.5s both;
+        "
+      >
+        <h1 style="color: var(--accent)">Fun Fact!</h1>
+        <p>
+          <i class="fa-solid fa-lightbulb"></i> I love solving puzzles and
+          learning new things every day!
+        </p>
+      </div>
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>
+          <a href="https://github.com/shreyay4060" target="_blank">
+            <i class="fa-brands fa-github"></i> Shreya &copy;
+            <span id="year"></span>
+            <i class="fa-solid fa-heart" style="color: var(--highlight)"></i>
+          </a>
+        </p>
+      </div>
     </div>
-  
-    <div class="copyright"><div class="copyright" >
-      <p><a href="https://github.com/shreyay4060" style="text-decoration: none; color: rgb(237, 69, 97);">Github <i class="fa-regular fa-copyright"></i> Shreya <i class="fa-sharp fa-solid fa-heart"></i> </a></p>
-  </div></div>
-  
-    
-  
-  </div>
-  
-     </div>
-  </div>
+    <!-- Typed.js -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="index.js"></script>
-    
-    <script src="https://kit.fontawesome.com/3047116925.js" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script>
+      // Typed.js animation
+      var typed = new Typed("#element", {
+        strings: [
+          "Web Developer",
+          "Web Designer",
+          "Frontend Developer",
+          "Graphic Designer",
+          "UI/UX Designer",
+          "Creative Thinker",
+          "Puzzle Solver",
+          "Tech Enthusiast",
+        ],
+        typeSpeed: 60,
+        backSpeed: 30,
+        loop: true,
+      });
+
+      // Download Resume functionality
+      document
+        .getElementById("downloadResume")
+        .addEventListener("click", function () {
+          const link = document.createElement("a");
+          link.href = "./resume.pdf";
+          link.download = "Shreya_Yadav_Resume.pdf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('.nav-link[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Set copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Animate profile card on scroll
+      window.addEventListener("scroll", function () {
+        const card = document.querySelector(".profile-card");
+        if (window.scrollY > 40) {
+          card.style.boxShadow = "0 8px 32px #a18cd144";
+          card.style.transform = "scale(1.02)";
+        } else {
+          card.style.boxShadow = "var(--card-shadow)";
+          card.style.transform = "scale(1)";
+        }
+      });
+    </script>
   </body>
 </html>
