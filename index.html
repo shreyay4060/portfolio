@@ -3,37 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shreya Yadav | Portfolio</title>
+    <title>Shreya Yadav | React Developer Portfolio</title>
     <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"/>
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
     <style>
-      /* Light, modern, fancy color palette */
       :root {
-        --primary: #f5f7fa;
-        --accent: #a18cd1;
+        --primary: #f8fafc;
+        --accent: #3869fa;
         --accent2: #fbc2eb;
-        --text: #3a3a3a;
-        --highlight: #ffb347;
+        --text: #232946;
+        --highlight: #ffde21;
         --nav-bg: #ffffffcc;
         --nav-shadow: 0 2px 24px 0 #e0e0e0;
-        --card-bg: #ffffffcc;
+        --card-bg: #ffffffee;
         --card-shadow: 0 4px 32px 0 #e0e0e0;
         --gradient: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
-        --button-bg: #a18cd1;
-        --button-hover: #fbc2eb;
+        --button-bg: #3568ff;
+        --button-hover: #ffd803;
       }
       body {
         background: var(--gradient);
@@ -92,23 +82,19 @@
         box-shadow: var(--card-shadow);
         border-radius: 32px;
         padding: 2.5rem 2rem 2rem 2rem;
+       
         margin-bottom: 2rem;
         max-width: 700px;
         width: 100%;
         text-align: center;
         position: relative;
         overflow: hidden;
-        animation: fadeInUp 1.2s cubic-bezier(0.23, 1.01, 0.32, 1) both;
+        animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;
+        
       }
       @keyframes fadeInUp {
-        0% {
-          opacity: 0;
-          transform: translateY(60px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        0% { opacity: 0; transform: translateY(60px);}
+        100% { opacity: 1; transform: translateY(0);}
       }
       .profile-pic {
         width: 140px;
@@ -120,17 +106,12 @@
         box-shadow: 0 4px 24px #a18cd144;
         background: #fff;
         animation: bounceIn 1.2s;
+        margin-right: 90px;
       }
       @keyframes bounceIn {
-        0% {
-          transform: scale(0.7);
-        }
-        60% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
+        0% { transform: scale(0.7);}
+        60% { transform: scale(1.1);}
+        100% { transform: scale(1);}
       }
       .home-title {
         font-size: 2.5rem;
@@ -151,8 +132,7 @@
         display: block;
         min-height: 32px;
       }
-      .about,
-      .contact {
+      .about, .contact, .skills, .projects, .fun-fact {
         background: var(--card-bg);
         box-shadow: var(--card-shadow);
         border-radius: 24px;
@@ -160,17 +140,15 @@
         margin-bottom: 2rem;
         max-width: 700px;
         width: 100%;
-        animation: fadeInUp 1.2s cubic-bezier(0.23, 1.01, 0.32, 1) both;
+        animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) both;
       }
-      .about h1,
-      .contact h1 {
+      .about h1, .contact h1, .skills h1, .projects h1, .fun-fact h1 {
         color: var(--accent);
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 1rem;
       }
-      .about p,
-      .contact p {
+      .about p, .contact p, .skills p, .projects p, .fun-fact p {
         color: #444;
         font-size: 1.1rem;
         margin-bottom: 0.7rem;
@@ -193,8 +171,7 @@
       .contact-info {
         text-align: center;
       }
-      .mail,
-      .phone {
+      .mail, .phone {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -203,8 +180,7 @@
         color: var(--accent);
         margin-bottom: 0.5rem;
       }
-      .mail i,
-      .phone i {
+      .mail i, .phone i {
         color: var(--highlight);
         font-size: 1.3rem;
       }
@@ -225,138 +201,148 @@
       .copyright a:hover {
         color: var(--highlight);
       }
-      /* Floating animated puzzle pieces */
+      /* Animated puzzle pieces */
       .puzzle {
         position: absolute;
         z-index: 0;
         opacity: 0.12;
         animation: floatPuzzle 12s infinite linear;
       }
-      .puzzle.p1 {
-        top: 5%;
-        left: 10%;
-        width: 60px;
-        animation-delay: 0s;
-      }
-      .puzzle.p2 {
-        top: 15%;
-        right: 12%;
-        width: 40px;
-        animation-delay: 2s;
-      }
-      .puzzle.p3 {
-        bottom: 10%;
-        left: 20%;
-        width: 50px;
-        animation-delay: 4s;
-      }
-      .puzzle.p4 {
-        bottom: 18%;
-        right: 18%;
-        width: 70px;
-        animation-delay: 6s;
-      }
+      .puzzle.p1 { top: 5%; left: 10%; width: 60px; animation-delay: 0s;}
+      .puzzle.p2 { top: 15%; right: 12%; width: 40px; animation-delay: 2s;}
+      .puzzle.p3 { bottom: 10%; left: 20%; width: 50px; animation-delay: 4s;}
+      .puzzle.p4 { bottom: 18%; right: 18%; width: 70px; animation-delay: 6s;}
       @keyframes floatPuzzle {
-        0% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-30px) rotate(10deg);
-        }
-        100% {
-          transform: translateY(0) rotate(0deg);
-        }
+        0% { transform: translateY(0) rotate(0deg);}
+        50% { transform: translateY(-30px) rotate(10deg);}
+        100% { transform: translateY(0) rotate(0deg);}
+      }
+      /* Animated floating dev image */
+      .dev-graphic {
+        width: 220px;
+        margin: 1.5rem auto 0 auto;
+        display: block;
+        border-radius: 24px;
+        box-shadow: 0 4px 24px #a18cd144;
+        animation: floatDev 4s ease-in-out infinite;
+        background: #fff;
+      }
+      @keyframes floatDev {
+        0%,100% { transform: translateY(0);}
+        50% { transform: translateY(-18px);}
+      }
+      /* Skills grid */
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        justify-content: center;
+        margin-top: 1.2rem;
+      }
+      .skill-badge {
+        background: var(--accent2);
+        color: var(--text);
+        border-radius: 18px;
+        padding: 0.5rem 1.2rem;
+        font-weight: 600;
+        font-size: 1rem;
+        box-shadow: 0 2px 8px #a18cd144;
+        margin-bottom: 0.5rem;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        cursor: pointer;
+      }
+      .skill-badge:hover {
+        background: var(--highlight);
+        color: var(--accent);
+        transform: scale(1.08) rotate(-3deg);
+      }
+      /* Project cards */
+      .project-card {
+        background: #f1e4fd;
+        border-radius: 18px;
+        box-shadow: 0 5px  12px 10px rgba(16, 2, 51, 0.267);
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+        text-align: left;
+        transition: box-shadow 0.2s, transform 0.2s;
+        position: relative;
+      }
+      .project-card:hover {
+        box-shadow: 0 6px 24px #a18cd144;
+        transform: scale(1.03);
+      }
+      .project-img {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 12px;
+        margin-bottom: 0.7rem;
+        box-shadow: 0 2px 8px #a18cd144;
+      }
+      .project-links a {
+        margin-right: 1rem;
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .project-links a:hover {
+        color: var(--highlight);
       }
       /* Responsive */
       @media (max-width: 768px) {
-        .profile-card,
-        .about,
-        .contact {
+        .profile-card, .about, .contact, .skills, .projects, .fun-fact {
           padding: 1.2rem 0.5rem;
         }
         .main {
           padding-top: 70px;
         }
-        .profile-pic {
+        .profile-pic, .dev-graphic {
           width: 90px;
           height: 90px;
         }
         .home-title {
           font-size: 1.5rem;
         }
+        .project-img {
+          max-width: 100%;
+        }
       }
     </style>
   </head>
   <body>
     <!-- Floating puzzle SVGs for animation -->
-    <svg class="puzzle p1" viewBox="0 0 64 64">
-      <path
-        fill="#a18cd1"
-        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
-      />
-    </svg>
-    <svg class="puzzle p2" viewBox="0 0 64 64">
-      <path
-        fill="#fbc2eb"
-        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
-      />
-    </svg>
-    <svg class="puzzle p3" viewBox="0 0 64 64">
-      <path
-        fill="#a6c1ee"
-        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
-      />
-    </svg>
-    <svg class="puzzle p4" viewBox="0 0 64 64">
-      <path
-        fill="#ffb347"
-        d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"
-      />
-    </svg>
+    <svg class="puzzle p1" viewBox="0 0 64 64"><path fill="#7f9cf5" d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"/></svg>
+    <svg class="puzzle p2" viewBox="0 0 64 64"><path fill="#fbc2eb" d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"/></svg>
+    <svg class="puzzle p3" viewBox="0 0 64 64"><path fill="#a6c1ee" d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"/></svg>
+    <svg class="puzzle p4" viewBox="0 0 64 64"><path fill="#ffd803" d="M32 0a8 8 0 0 1 8 8v8h8a8 8 0 0 1 8 8v8h-8v8h8v8a8 8 0 0 1-8 8h-8v8a8 8 0 0 1-8 8h-8v-8h-8a8 8 0 0 1-8-8v-8h8v-8h-8v-8a8 8 0 0 1 8-8h8v-8a8 8 0 0 1 8-8z"/></svg>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
           <i class="fa-solid fa-puzzle-piece"></i> Shreya
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#home"
-                ><i class="fa fa-home"></i> Home</a
-              >
+              <a class="nav-link active" aria-current="page" href="#home"><i class="fa fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about"
-                ><i class="fa fa-user"></i> About</a
-              >
+              <a class="nav-link" href="#about"><i class="fa fa-user"></i> About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact"
-                ><i class="fa fa-envelope"></i> Contact</a
-              >
+              <a class="nav-link" href="#skills"><i class="fa fa-code"></i> Skills</a>
             </li>
             <li class="nav-item">
-              <button class="resume-btn" id="downloadResume">
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="bg-violet-600 hover:bg-violet-800 text-white font-semibold py-2 px-4 rounded-lg"
-                >
-                  Download Resume
-                </a>
-              </button>
+              <a class="nav-link" href="#projects"><i class="fa fa-laptop-code"></i> Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+            </li>
+            <li class="nav-item">
+              <button class="resume-btn" id="downloadResume"><i class="fa fa-download"></i> Resume</button>
             </li>
           </ul>
         </div>
@@ -365,116 +351,91 @@
     <!-- Main Content -->
     <div class="main" id="home">
       <div class="profile-card">
-        <img src="./images/mi.png" alt="Shreya Yadav" class="profile-pic" />
+        <img src="./images/mi2.png" alt="Shreya Yadav" class="profile-pic" />
         <div class="home-title">Hey there! 👋</div>
         <div class="subtitle">Welcome to my world 😉</div>
-        <h1
-          class="center"
-          style="font-size: 2rem; color: var(--accent); font-weight: 700"
-        >
-          I'm Shreya Yadav
-        </h1>
+        <h1 class="center" style="font-size: 2rem; color: var(--accent); font-weight: 700;">I'm Shreya Yadav</h1>
         <span id="element"></span>
-        <div style="margin-top: 1.5rem">
-          <a
-            href="#about"
-            class="resume-btn"
-            style="background: var(--highlight); color: var(--text)"
-            >Learn More <i class="fa fa-arrow-down"></i
-          ></a>
+        <!-- <img src="./images/mi2.png" alt="React Developer" class="dev-graphic" id="devGraphic" /> -->
+        <div style="margin-top: 1.5rem;">
+          <a href="#about" class="resume-btn" style="background: var(--highlight); color: var(--text);">Learn More <i class="fa fa-arrow-down"></i></a>
         </div>
       </div>
       <!-- About Section -->
       <div class="about" id="about">
-        <h1>Let me introduce myself</h1>
+        <h1>About Me</h1>
         <p>
-          "Hello, I'm <b><i>Shreya</i></b
-          >, a multidisciplinary creative professional with a passion for
-          <b><i>crafting innovative</i></b> digital experiences. With expertise
-          in both <b><i>Graphic design</i></b> and <b><i>web development</i></b
-          >, I bring a unique blend of artistic vision and technical expertise
-          to every project."
+          <b>React Developer | Frontend Enthusiast | UI/UX Explorer</b>
         </p>
         <p>
-          With a strong foundation in design principles and a keen eye for
-          detail, I create visually stunning and user-friendly interfaces that
-          captivate audiences and drive results. My passion for innovation and
-          my ability to think outside the box make me a valuable asset to any
-          team. I'm always looking for new challenges and opportunities to grow
-          and learn.
+          Hi! I'm <b>Shreya Yadav</b>, a passionate React developer from Maharashtra, India. I love building beautiful, interactive, and accessible web apps. My focus is on crafting seamless user experiences using React, JavaScript, and modern web technologies.
         </p>
-        <div style="margin-top: 1.5rem">
-          <img
-            src="./images/mi.png"
-            alt="Shreya Graphic"
-            style="
-              width: 80px;
-              border-radius: 16px;
-              box-shadow: 0 2px 12px #a18cd144;
-            "
-          />
+        <ul style="text-align:left; margin: 1rem auto; max-width: 500px;">
+          <li>🌟 <b>Experience:</b> 1+ years in frontend development</li>
+          <li>⚛️ <b>Specialty:</b> React, Redux, Firebase, REST APIs</li>
+          <li>🎨 <b>Design:</b>  UI/UX best practices</li>
+          <li>🚀 <b>Soft Skills:</b> Teamwork, Communication, Problem-solving</li>
+          <li>🏆 <b>Awards:</b> Innovative Web-design, Full Stack Certification</li>
+        </ul>
+      </div>
+      <!-- Skills Section -->
+      <div class="skills" id="skills">
+        <h1>Skills & Tools</h1>
+        <div class="skills-list" id="skillsList">
+          <!-- JS will populate skills here -->
         </div>
       </div>
-      <!-- Contact Section -->
-      <div class="contact" id="contact">
-        <div class="contact-info">
-          <h1>Get in touch</h1>
-          <p>Want to collaborate or just say hi? I'd love to hear from you!</p>
-          <div class="mail">
-            <i class="fa-solid fa-paper-plane"></i>
-            <a
-              href="mailto:shreyay4060@gmail.com"
-              style="color: var(--accent); text-decoration: none"
-              >shreyay4060@gmail.com</a
-            >
+      <!-- Projects Section -->
+      <div class="projects" id="projects">
+        <h1>Featured Projects</h1>
+        <div class="project-card">
+          <img src="https://user-images.githubusercontent.com/106291230/236678464-6e3e9b3e-6a2b-4b3d-8e0e-7e7e9b3e9b3e.png" alt="E-commerce App" class="project-img"/>
+          <h4>EasyShop – E-commerce Web Application</h4>
+          <p>
+            Built with React, Firebase, Redux, HTML, CSS. Features product filtering, dynamic cart, order management, and Firebase Auth.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/shreyay4060/ecommerce/tree/main/vite-project" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
           </div>
-          <div class="phone">
-            <i class="fa-solid fa-square-phone"></i> <span>8421915279</span>
-          </div>
+          <img src="./images/image.png" height="200px" alt="">
         </div>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/" target="_blank"
-            ><i class="fa-brands fa-facebook"></i
-          ></a>
-          <a href="https://twitter.com/shreyaycode" target="_blank"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
-          <a href="https://www.instagram.com/shreegraphics.dev" target="_blank"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/shreya-yadav-53286028b"
-            target="_blank"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
-          <a href="https://github.com/shreyay4060" target="_blank"
-            ><i class="fa-brands fa-github"></i
-          ></a>
+        <div class="project-card">
+          <img src="https://user-images.githubusercontent.com/106291230/236678464-6e3e9b3e-6a2b-4b3d-8e0e-7e7e9b3e9b3e.png" alt="Grocery App" height="100px" class="project-img"/>
+          <h4>Grocery Shopping Web Application</h4>
+          <p>
+            Responsive grocery shopping app with cart, product filters, and real-time database using React, Firebase, HTML, CSS.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/shreyay4060/grocery" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+          <img src="./images/grocery.png" height="200px" alt="">
+        </div>
+        <div class="project-card">
+          <!-- <img src="./images/mi2.png" alt="Portfolio" class="project-img"/> -->
+          <h4>Personal Portfolio Website</h4>
+          <p>
+            This very site! Built with HTML, CSS, JavaScript, and a touch of React inspiration. Fully responsive and visually engaging.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/shreyay4060/portfolio-website" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+          <img src="./images/portfolio1.png" height="200px" alt="">
         </div>
       </div>
-      <!-- Animated Fun Fact Card -->
-      <div
-        class="about"
-        style="
-          background: var(--accent2);
-          color: var(--text);
-          text-align: center;
-          animation: fadeInUp 1.5s 0.5s both;
-        "
-      >
-        <h1 style="color: var(--accent)">Fun Fact!</h1>
+      <!-- Fun Fact Card -->
+      <div class="fun-fact" style="background: var(--accent2); color: var(--text); text-align:center; animation: fadeInUp 1.5s 0.5s both;">
+        <h1 style="color: var(--accent);">Fun Fact!</h1>
         <p>
-          <i class="fa-solid fa-lightbulb"></i> I love solving puzzles and
-          learning new things every day!
+          <i class="fa-solid fa-lightbulb"></i> I love solving puzzles, drawing, and learning new things every day!
         </p>
+        <img src="./images/mi.png" alt="Fun Puzzle" style="width: 70px; border-radius: 12px; margin-top: 1rem;"/>
       </div>
       <!-- Copyright -->
       <div class="copyright">
         <p>
           <a href="https://github.com/shreyay4060" target="_blank">
-            <i class="fa-brands fa-github"></i> Shreya &copy;
-            <span id="year"></span>
-            <i class="fa-solid fa-heart" style="color: var(--highlight)"></i>
+            <i class="fa-brands fa-github"></i> Shreya &copy; <span id="year"></span>
+            <i class="fa-solid fa-heart" style="color: var(--highlight);"></i>
           </a>
         </p>
       </div>
@@ -482,23 +443,20 @@
     <!-- Typed.js -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- Custom JS -->
     <script>
       // Typed.js animation
       var typed = new Typed("#element", {
         strings: [
-          "Web Developer",
-          "Web Designer",
-          "Frontend Developer",
-          "Graphic Designer",
-          "UI/UX Designer",
+          "React Developer",
+          "Frontend Engineer",
+          "UI/UX Enthusiast",
+          "JavaScript Lover",
+          "Open Source Contributor",
           "Creative Thinker",
           "Puzzle Solver",
-          "Tech Enthusiast",
+          "Tech Explorer"
         ],
         typeSpeed: 60,
         backSpeed: 30,
@@ -506,16 +464,14 @@
       });
 
       // Download Resume functionality
-      document
-        .getElementById("downloadResume")
-        .addEventListener("click", function () {
-          const link = document.createElement("a");
-          link.href = "./resume.pdf";
-          link.download = "Shreya_Yadav_Resume.pdf";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        });
+      document.getElementById("downloadResume").addEventListener("click", function () {
+        const link = document.createElement("a");
+        link.href = "./resume.pdf";
+        link.download = "Shreya_Yadav_Resume.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
 
       // Smooth scroll for nav links
       document.querySelectorAll('.nav-link[href^="#"]').forEach((anchor) => {
@@ -544,6 +500,62 @@
           card.style.boxShadow = "var(--card-shadow)";
           card.style.transform = "scale(1)";
         }
+      });
+
+      // Animated skill badges
+      const skills = [
+        { name: "React", icon: "fa-brands fa-react" },
+        { name: "Redux", icon: "fa-solid fa-diagram-project" },
+        { name: "JavaScript", icon: "fa-brands fa-js" },
+        { name: "HTML5", icon: "fa-brands fa-html5" },
+        { name: "CSS3", icon: "fa-brands fa-css3-alt" },
+        { name: "Firebase", icon: "fa-solid fa-fire" },
+        { name: "Node.js", icon: "fa-brands fa-node-js" },
+        { name: "Git", icon: "fa-brands fa-git-alt" },
+        { name: "Figma", icon: "fa-brands fa-figma" },
+        { name: "Bootstrap", icon: "fa-brands fa-bootstrap" },
+        { name: "Tailwind CSS", icon: "fa-solid fa-wind" },
+        { name: "VS Code", icon: "fa-solid fa-code" }
+      ];
+      const skillsList = document.getElementById("skillsList");
+      skills.forEach(skill => {
+        const badge = document.createElement("span");
+        badge.className = "skill-badge";
+        badge.innerHTML = `<i class="${skill.icon}" style="margin-right:7px"></i>${skill.name}`;
+        badge.addEventListener("mouseenter", () => {
+          badge.textContent = `I love ${skill.name}!`;
+        });
+        badge.addEventListener("mouseleave", () => {
+          badge.innerHTML = `<i class="${skill.icon}" style="margin-right:7px"></i>${skill.name}`;
+        });
+        skillsList.appendChild(badge);
+      });
+
+      // Animate dev image on click (spin)
+      document.getElementById("devGraphic").addEventListener("click", function() {
+        this.style.transition = "transform 0.7s cubic-bezier(.23,1.01,.32,1)";
+        this.style.transform = "rotate(360deg) scale(1.1)";
+        setTimeout(() => {
+          this.style.transform = "";
+        }, 700);
+      });
+
+      // Show random motivational quote on page load
+      const quotes = [
+        "Code is like humor. When you have to explain it, it’s bad.",
+        "First, solve the problem. Then, write the code.",
+        "Experience is the name everyone gives to their mistakes.",
+        "In order to be irreplaceable, one must always be different.",
+        "JavaScript is the duct tape of the Internet.",
+        "React: Learn once, write anywhere!"
+      ];
+      window.addEventListener("DOMContentLoaded", () => {
+        const funFact = document.querySelector(".fun-fact");
+        const quote = document.createElement("p");
+        quote.style.fontStyle = "italic";
+        quote.style.marginTop = "1rem";
+        quote.textContent = "💡 " + quotes[Math.floor(Math.random() * quotes.length)];
+        funFact.appendChild(quote);
       });
     </script>
   </body>
