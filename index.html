@@ -288,6 +288,34 @@
       .project-links a:hover {
         color: var(--highlight);
       }
+      /* Make images responsive and centered */
+.project-img.responsive-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  max-height: 200px;
+  display: block;
+  margin: 0 auto 10px auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Optional styling for the .project-card */
+.project-card {
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.project-links a {
+  color: #5b21b6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
       /* Responsive */
       @media (max-width: 768px) {
         .profile-card, .about, .contact, .skills, .projects, .fun-fact {
@@ -387,42 +415,52 @@
         </div>
       </div>
       <!-- Projects Section -->
-      <div class="projects" id="projects">
-        <h1>Featured Projects</h1>
-        <div class="project-card">
-          <img src="https://user-images.githubusercontent.com/106291230/236678464-6e3e9b3e-6a2b-4b3d-8e0e-7e7e9b3e9b3e.png" alt="E-commerce App" class="project-img"/>
-          <h4>EasyShop – E-commerce Web Application</h4>
-          <p>
-            Built with React, Firebase, Redux, HTML, CSS. Features product filtering, dynamic cart, order management, and Firebase Auth.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/shreyay4060/ecommerce/tree/main/vite-project" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-          <img src="./images/image.png" height="200px" alt="">
-        </div>
-        <div class="project-card">
-          <img src="https://user-images.githubusercontent.com/106291230/236678464-6e3e9b3e-6a2b-4b3d-8e0e-7e7e9b3e9b3e.png" alt="Grocery App" height="100px" class="project-img"/>
-          <h4>Grocery Shopping Web Application</h4>
-          <p>
-            Responsive grocery shopping app with cart, product filters, and real-time database using React, Firebase, HTML, CSS.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/shreyay4060/grocery" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-          <img src="./images/grocery.png" height="200px" alt="">
-        </div>
-        <div class="project-card">
-          <!-- <img src="./images/mi2.png" alt="Portfolio" class="project-img"/> -->
-          <h4>Personal Portfolio Website</h4>
-          <p>
-            This very site! Built with HTML, CSS, JavaScript, and a touch of React inspiration. Fully responsive and visually engaging.
-          </p>
-          <div class="project-links">
-            <a href="https://github.com/shreyay4060/portfolio-website" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-          <img src="./images/portfolio1.png" height="200px" alt="">
-        </div>
-      </div>
+      <!-- Projects Section -->
+<div class="projects" id="projects">
+  <h1>Featured Projects</h1>
+
+  <div class="project-card">
+    <img src="https://user-images.githubusercontent.com/106291230/236678464-6e3e9b3e-6a2b-4b3d-8e0e-7e7e9b3e9b3e.png" alt="E-commerce App" class="project-img responsive-img" />
+    <h4>EasyShop – E-commerce Web Application</h4>
+    <p>
+      Built with React, Firebase, Redux, HTML, CSS. Features product filtering, dynamic cart, order management, and Firebase Auth.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/shreyay4060/ecommerce/tree/main/vite-project" target="_blank">
+        <i class="fa-brands fa-github"></i> Code
+      </a>
+    </div>
+    <img src="./images/image.png" alt="EasyShop preview" class="project-img responsive-img" />
+  </div>
+
+  <div class="project-card">
+    <img src="https://user-images.githubusercontent.com/106291230/236678464-6e3e9b3e-6a2b-4b3d-8e0e-7e7e9b3e9b3e.png" alt="Grocery App" class="project-img responsive-img" />
+    <h4>Grocery Shopping Web Application</h4>
+    <p>
+      Responsive grocery shopping app with cart, product filters, and real-time database using React, Firebase, HTML, CSS.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/shreyay4060/grocery" target="_blank">
+        <i class="fa-brands fa-github"></i> Code
+      </a>
+    </div>
+    <img src="./images/grocery.png" alt="Grocery preview" class="project-img responsive-img" />
+  </div>
+
+  <div class="project-card">
+    <h4>Personal Portfolio Website</h4>
+    <p>
+      This very site! Built with HTML, CSS, JavaScript, and a touch of React inspiration. Fully responsive and visually engaging.
+    </p>
+    <div class="project-links">
+      <a href="https://github.com/shreyay4060/portfolio-website" target="_blank">
+        <i class="fa-brands fa-github"></i> Code
+      </a>
+    </div>
+    <img src="./images/portfolio1.png" alt="Portfolio preview" class="project-img responsive-img" />
+  </div>
+</div>
+
       <div class="contact" id="contact">
         <div class="contact-info">
           <h1>Get in touch</h1>
